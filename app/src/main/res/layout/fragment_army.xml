@@ -7,10 +7,28 @@
     android:layout_height="match_parent"
     tools:context=".ui.army.ArmyFragment">
 
+    <TextView
+        android:id="@+id/army_points"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:textAlignment="center"
+        style="@style/TitleStyle"
+        android:text="@string/army_points" />
+
+    <TextView
+        android:id="@+id/army_spaces"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        style="@style/TitleStyle"
+        android:text="@string/army_spaces" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/army_recycler_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginBottom="20dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
 </LinearLayout>

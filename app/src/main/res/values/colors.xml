@@ -10,9 +10,9 @@
     <color name="dark_gray">#666666</color>
 
     <!-- Colors for the stats -->
-    <color name="lives_color">#ff691218</color>
+    <color name="lives_color">#98121C</color>
     <color name="move_color">#ff003a21</color>
     <color name="range_color">#ff636363</color>
-    <color name="attack_color">#ff75251e</color>
-    <color name="defense_color">#ff134576</color>
+    <color name="attack_color">#AF2B20</color>
+    <color name="defense_color">#135597</color>
 </resources>

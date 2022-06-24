@@ -27,4 +27,6 @@
 
     <string name="powers_popup">POWER 1 NAME\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ut varius magna. Suspendisse laoreet mi rutrum dui iaculis, ut feugiat ante ullamcorper. Donec elementum erat nec nibh porta pulvinar. Morbi faucibus est eget volutpat dictum. Integer et ultrices quam. Integer elementum nibh in metus porttitor, id maximus sapien venenatis.\n\nPOWER 2 NAME\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ut varius magna. Suspendisse laoreet mi rutrum dui iaculis, ut feugiat ante ullamcorper. Donec elementum erat nec nibh porta pulvinar. Morbi faucibus est eget volutpat dictum. Integer et ultrices quam. Integer elementum nibh in metus porttitor, id maximus sapien venenatis.\n\nPOWER 3 NAME\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ut varius magna. Suspendisse laoreet mi rutrum dui iaculis, ut feugiat ante ullamcorper. Donec elementum erat nec nibh porta pulvinar. Morbi faucibus est eget volutpat dictum. Integer et ultrices quam. Integer elementum nibh in metus porttitor, id maximus sapien venenatis.</string>
     <string name="title_list">Card List</string>
+    <string name="army_points">%1$d points</string>
+    <string name="army_spaces">%1$d spaces</string>
 </resources>
