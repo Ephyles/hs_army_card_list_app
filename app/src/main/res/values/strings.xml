@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Heroscape Army Card List</string>
+    <string name="title_home">Home</string>
+    <string name="title_army">Army</string>
+    <string name="item_card_name">Card Name</string>
+    <string name="item_card_general">Card General</string>
+    <string name="placeholder_integer">0</string>
+    <string name="points_title">Points</string>
+
+    <!-- Popup -->
+    <string name="card_name_popup">Card Name</string>
+    <string name="general_category_popup">%1$s - %2$s</string>
+    <string name="species_popup">Species</string>
+    <string name="rarity_number_popup">Common Squad</string>
+    <string name="class_popup">Class</string>
+    <string name="personality_popup">Personality</string>
+    <string name="size_popup">Medium X</string>
+    <string name="lives_popup">LIVES %1$d</string>
+    <string name="move_popup">MOVE %1$d</string>
+    <string name="range_popup">RANGE %1$d</string>
+    <string name="attack_popup">ATTACK %1$d</string>
+    <string name="defense_popup">DEFENSE %1$d</string>
+    <string name="points_popup">%1$d Points</string>
+    <string name="figures_popup">%1$d Figures</string>
+    <string name="spaces_popup">%1$d Spaces each</string>
+    <string name="total_spaces_popup">%1$d Spaces total</string>
+
+    <string name="powers_popup">POWER 1 NAME\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ut varius magna. Suspendisse laoreet mi rutrum dui iaculis, ut feugiat ante ullamcorper. Donec elementum erat nec nibh porta pulvinar. Morbi faucibus est eget volutpat dictum. Integer et ultrices quam. Integer elementum nibh in metus porttitor, id maximus sapien venenatis.\n\nPOWER 2 NAME\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ut varius magna. Suspendisse laoreet mi rutrum dui iaculis, ut feugiat ante ullamcorper. Donec elementum erat nec nibh porta pulvinar. Morbi faucibus est eget volutpat dictum. Integer et ultrices quam. Integer elementum nibh in metus porttitor, id maximus sapien venenatis.\n\nPOWER 3 NAME\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ut varius magna. Suspendisse laoreet mi rutrum dui iaculis, ut feugiat ante ullamcorper. Donec elementum erat nec nibh porta pulvinar. Morbi faucibus est eget volutpat dictum. Integer et ultrices quam. Integer elementum nibh in metus porttitor, id maximus sapien venenatis.</string>
+    <string name="title_list">Card List</string>
+</resources>
