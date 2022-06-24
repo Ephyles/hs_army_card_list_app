@@ -1,35 +1,65 @@
-package fr.ephyles.heroscapearmycardlist;
+package fr.ephyles.heroscapearmycardlist
 
-import android.content.Context;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteQueryBuilder;
+import android.content.Context
+import android.database.Cursor
+import com.readystatesoftware.sqliteasset.SQLiteAssetHelper
+import fr.ephyles.heroscapearmycardlist.CardDatabase
+import android.database.sqlite.SQLiteDatabase
+import android.database.sqlite.SQLiteQueryBuilder
 
-import com.readystatesoftware.sqliteasset.SQLiteAssetHelper;
+class CardDatabase(context: Context?) :
+    SQLiteAssetHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
 
-public class CardDatabase extends SQLiteAssetHelper {
+    fun createList(callback: () -> Unit) {
+        val db = readableDatabase
+        val qb = SQLiteQueryBuilder()
 
-    private static final String DATABASE_NAME = "cards.db";
-    private static final int DATABASE_VERSION = 1;
+        val sqlTables = "army_cards"
+        qb.tables = sqlTables
+        val c = qb.query(
+            db, null, null, null,
+            null, null, "Name"
+        )
+        c.moveToFirst()
 
-    public CardDatabase(Context context) {
-        super(context, DATABASE_NAME, null, DATABASE_VERSION);
+        cardList.clear()
+
+        with(c) {
+            while (moveToNext()) {
+                var newCard = CardModel(
+                    getString(0),
+                    getString(15),
+                    getInt(7),
+                    getString(1),
+                    getInt(2),
+                    getInt(3),
+                    getInt(4),
+                    getInt(5),
+                    getInt(6),
+                    getString(8) + " " + getInt(9).toString(),
+                    getString(10),
+                    getString(11),
+                    getString(12),
+                    getString(13) + " " + getString(14),
+                    getInt(16),
+                    getInt(17),
+                    getString(18) + "\n\n" + getString(19) + "\n\n" +
+                            getString(20) + "\n\n" + getString(21) + "\n\n" +
+                            getString(22) + "\n\n" + getString(23) + "\n\n" +
+                            getString(24) + "\n\n" + getString(25) + "\n\n",
+                    getString(26),
+                    0
+                )
+                cardList.add(newCard)
+            }
+        }
+
+        callback()
     }
 
-    public Cursor getArmyCards() {
-
-        SQLiteDatabase db = getReadableDatabase();
-        SQLiteQueryBuilder qb = new SQLiteQueryBuilder();
-
-        //String [] sqlSelect = {"Name", "General", "Points"};
-        String sqlTables = "army_cards";
-
-        qb.setTables(sqlTables);
-        Cursor c = qb.query(db, null, null, null,
-                null, null, "Name");
-
-        c.moveToFirst();
-        return c;
-
+    companion object {
+        private const val DATABASE_NAME = "cards.db"
+        private const val DATABASE_VERSION = 1
+        val cardList = arrayListOf<CardModel>()
     }
 }
