@@ -59,7 +59,12 @@ class CardDatabase(context: Context?) :
 
     companion object {
         private const val DATABASE_NAME = "cards.db"
-        private const val DATABASE_VERSION = 1
+        private const val DATABASE_VERSION = 2
+        /*
+        Database Changelog
+        v1 : Original database
+        v2 : fixed Wolves Of Badru and Wo-Sa-Ga having their powers swapped
+         */
         val cardList = arrayListOf<CardModel>()
     }
 }
