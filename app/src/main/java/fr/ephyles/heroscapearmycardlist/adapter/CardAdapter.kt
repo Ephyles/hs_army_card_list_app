@@ -14,7 +14,8 @@ import fr.ephyles.heroscapearmycardlist.R
 class CardAdapter(
     val context: Context?,
     private val cardList: List<CardModel>,
-    private val layoutId: Int
+    private val layoutId: Int,
+    val callback: () -> Unit
 ) : RecyclerView.Adapter<CardAdapter.ViewHolder>() {
 
     // Range les composants à contrôler
@@ -60,6 +61,7 @@ class CardAdapter(
             if (currentCard.armyCount > 0) {
                 currentCard.armyCount--
                 holder.armyCount.text = currentCard.armyCount.toString()
+                callback()
             }
         }
 
@@ -67,12 +69,14 @@ class CardAdapter(
             if (currentCard.armyCount == 0 || !currentCard.rarityAndNumber.contains("Unique", true)) {
                 currentCard.armyCount++
                 holder.armyCount.text = currentCard.armyCount.toString()
+                callback()
             }
         }
 
         holder.itemView.setOnClickListener {
             CardPopup(this, currentCard) {
                 holder.armyCount.text = currentCard.armyCount.toString()
+                callback()
             }.show()
         }
     }

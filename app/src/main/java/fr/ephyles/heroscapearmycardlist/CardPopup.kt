@@ -1,6 +1,7 @@
 package fr.ephyles.heroscapearmycardlist
 
 import android.app.Dialog
+import android.content.DialogInterface
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -20,6 +21,11 @@ class CardPopup(private val adapter: CardAdapter, private val currentCard: CardM
         setupCloseButton()
         setupBookButton()
         setupPlusMinus()
+    }
+
+    override fun cancel() {
+        callback()
+        super.cancel()
     }
 
     private fun setupComponents() {

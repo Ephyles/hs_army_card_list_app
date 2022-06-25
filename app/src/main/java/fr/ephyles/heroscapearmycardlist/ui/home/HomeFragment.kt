@@ -23,7 +23,7 @@ class HomeFragment : Fragment() {
 
         //recup recyclerview
         val listRecyclerView = view.findViewById<RecyclerView>(R.id.home_recycler_list)
-        listRecyclerView.adapter = CardAdapter(context, cardList.sortedBy { it.points }, R.layout.item_card)
+        listRecyclerView.adapter = CardAdapter(context, cardList.sortedBy { it.points }, R.layout.item_card) {}
 
         return view
     }

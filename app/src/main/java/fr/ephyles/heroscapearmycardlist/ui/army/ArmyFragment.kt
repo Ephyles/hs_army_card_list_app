@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import fr.ephyles.heroscapearmycardlist.CardDatabase.Companion.cardList
+import fr.ephyles.heroscapearmycardlist.CardModel
 import fr.ephyles.heroscapearmycardlist.R
 import fr.ephyles.heroscapearmycardlist.adapter.CardAdapter
 
@@ -22,6 +23,18 @@ class ArmyFragment : Fragment() {
 
         val armyList = cardList.filter { it.armyCount > 0 }
 
+        updateArmyInfo(armyList, view)
+
+        //recup recyclerview
+        val armyRecyclerView = view.findViewById<RecyclerView>(R.id.army_recycler_list)
+        armyRecyclerView.adapter = CardAdapter(context, armyList, R.layout.item_card) {
+            updateArmyInfo(armyList, view)
+        }
+
+        return view
+    }
+
+    private fun updateArmyInfo(armyList: List<CardModel>, view: View) {
         var points = 0
         var spaces = 0
 
@@ -32,11 +45,5 @@ class ArmyFragment : Fragment() {
 
         view.findViewById<TextView>(R.id.army_points).text = getString(R.string.army_points, points)
         view.findViewById<TextView>(R.id.army_spaces).text = getString(R.string.army_spaces, spaces)
-
-        //recup recyclerview
-        val armyRecyclerView = view.findViewById<RecyclerView>(R.id.army_recycler_list)
-        armyRecyclerView.adapter = CardAdapter(context, armyList, R.layout.item_card)
-
-        return view
     }
 }
