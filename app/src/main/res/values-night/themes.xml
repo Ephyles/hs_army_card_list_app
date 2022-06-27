@@ -30,6 +30,9 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="PointsStyle" parent="StatStyle">
+    </style>
+
     <style name="DefaultStyle">
         <item name="android:textSize">16sp</item>
         <item name="android:textColor">@color/light_gray</item>
@@ -42,5 +45,9 @@
 
     <style name="CardItemName" parent="CardItemGeneral">
         <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="PopupGeneralLogo">
+        <item name="tint">@color/white</item>
     </style>
 </resources>
