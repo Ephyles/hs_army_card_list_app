@@ -19,7 +19,7 @@ class ArmyFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val view = inflater?.inflate(R.layout.fragment_army, container, false)
+        val view = inflater.inflate(R.layout.fragment_army, container, false)
 
         val armyList = cardList.filter { it.armyCount > 0 }
 

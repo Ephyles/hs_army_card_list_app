@@ -1,6 +1,5 @@
 package fr.ephyles.heroscapearmycardlist
 
-import android.database.Cursor
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -37,7 +36,4 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-    }
 }

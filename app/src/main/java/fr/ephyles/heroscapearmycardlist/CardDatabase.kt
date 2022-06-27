@@ -1,11 +1,8 @@
 package fr.ephyles.heroscapearmycardlist
 
 import android.content.Context
-import android.database.Cursor
-import com.readystatesoftware.sqliteasset.SQLiteAssetHelper
-import fr.ephyles.heroscapearmycardlist.CardDatabase
-import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteQueryBuilder
+import com.readystatesoftware.sqliteasset.SQLiteAssetHelper
 
 class CardDatabase(context: Context?) :
     SQLiteAssetHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
@@ -26,7 +23,7 @@ class CardDatabase(context: Context?) :
 
         with(c) {
             while (moveToNext()) {
-                var newCard = CardModel(
+                val newCard = CardModel(
                     getString(0),
                     getString(15),
                     getInt(7),
