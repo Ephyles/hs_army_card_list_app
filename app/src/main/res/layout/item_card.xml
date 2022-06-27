@@ -37,8 +37,7 @@
         android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
-        android:textColor="@color/black"
-        android:textStyle="bold"
+        style="@style/CardItemName"
         android:text="@string/item_card_name"
         app:layout_constraintBottom_toTopOf="@+id/view_separation"
         app:layout_constraintStart_toEndOf="@+id/cardView" />
@@ -47,7 +46,7 @@
         android:id="@+id/general_item"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
+        style="@style/CardItemGeneral"
         android:text="@string/item_card_general"
         app:layout_constraintStart_toStartOf="@+id/name_item"
         app:layout_constraintTop_toBottomOf="@+id/view_separation" />
