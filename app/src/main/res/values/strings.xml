@@ -7,6 +7,13 @@
     <string name="placeholder_integer">0</string>
     <string name="points_title">Points</string>
 
+    <string-array name="sort_spinner_options">
+        <item>Alphabetical (A-Z)</item>
+        <item>Alphabetical (Z-A)</item>
+        <item>Points (ascending)</item>
+        <item>Points (descending)</item>
+    </string-array>
+
     <!-- Popup -->
     <string name="card_name_popup">Card Name</string>
     <string name="general_category_popup">%1$s - %2$s</string>
@@ -30,4 +37,5 @@
     <string name="army_points">%1$d points</string>
     <string name="army_spaces">%1$d spaces</string>
     <string name="clear_army_popup">Clear army</string>
+    <string name="search_button">Search</string>
 </resources>

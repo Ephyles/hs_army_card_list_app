@@ -39,15 +39,16 @@ class ArmyFragment : Fragment() {
             val adb: AlertDialog.Builder = AlertDialog.Builder(context)
             adb.setTitle("Clear Army?")
             adb.setMessage("Are you sure that you want to clear your current army?")
-            adb.setPositiveButton("OK", DialogInterface.OnClickListener { _, _ ->
+            adb.setPositiveButton("OK") { _, _ ->
                 armyList.forEach {
                     it.armyCount = 0
                     updateArmyInfo(armyList, view)
-                    armyRecyclerView.adapter = CardAdapter(context, arrayListOf(), R.layout.item_card) {
-                        updateArmyInfo(armyList, view)
-                    }
+                    armyRecyclerView.adapter =
+                        CardAdapter(context, arrayListOf(), R.layout.item_card) {
+                            updateArmyInfo(armyList, view)
+                        }
                 }
-            })
+            }
             adb.setNegativeButton("Cancel", null)
             adb.show()
         }
