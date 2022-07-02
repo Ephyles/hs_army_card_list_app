@@ -1,9 +1,12 @@
 package fr.ephyles.heroscapearmycardlist.ui.army
 
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
@@ -11,6 +14,7 @@ import fr.ephyles.heroscapearmycardlist.CardDatabase.Companion.cardList
 import fr.ephyles.heroscapearmycardlist.CardModel
 import fr.ephyles.heroscapearmycardlist.R
 import fr.ephyles.heroscapearmycardlist.adapter.CardAdapter
+
 
 class ArmyFragment : Fragment() {
 
@@ -29,6 +33,23 @@ class ArmyFragment : Fragment() {
         val armyRecyclerView = view.findViewById<RecyclerView>(R.id.army_recycler_list)
         armyRecyclerView.adapter = CardAdapter(context, armyList, R.layout.item_card) {
             updateArmyInfo(armyList, view)
+        }
+
+        view.findViewById<Button>(R.id.clear_army_button).setOnClickListener {
+            val adb: AlertDialog.Builder = AlertDialog.Builder(context)
+            adb.setTitle("Clear Army?")
+            adb.setMessage("Are you sure that you want to clear your current army?")
+            adb.setPositiveButton("OK", DialogInterface.OnClickListener { _, _ ->
+                armyList.forEach {
+                    it.armyCount = 0
+                    updateArmyInfo(armyList, view)
+                    armyRecyclerView.adapter = CardAdapter(context, arrayListOf(), R.layout.item_card) {
+                        updateArmyInfo(armyList, view)
+                    }
+                }
+            })
+            adb.setNegativeButton("Cancel", null)
+            adb.show()
         }
 
         return view

@@ -1,34 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
+    android:id="@+id/linearLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.army.ArmyFragment">
 
     <TextView
         android:id="@+id/army_points"
-        android:layout_width="match_parent"
+        style="@style/TitleStyle"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
+        android:text="@string/army_points"
         android:textAlignment="center"
-        style="@style/TitleStyle"
-        android:text="@string/army_points" />
+        app:layout_constraintBottom_toTopOf="@+id/army_spaces"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/army_spaces"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAlignment="center"
         style="@style/TitleStyle"
-        android:text="@string/army_spaces" />
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/army_spaces"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/clear_army_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/army_points" />
+
+    <Button
+        android:id="@+id/clear_army_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/clear_army_popup"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/army_spaces"
+        app:layout_constraintTop_toBottomOf="@+id/army_spaces" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/army_recycler_list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/clear_army_button" />
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -29,4 +29,5 @@
     <string name="title_list">Card List</string>
     <string name="army_points">%1$d points</string>
     <string name="army_spaces">%1$d spaces</string>
+    <string name="clear_army_popup">Clear army</string>
 </resources>
