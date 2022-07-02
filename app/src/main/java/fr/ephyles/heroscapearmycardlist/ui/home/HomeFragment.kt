@@ -9,6 +9,7 @@ import android.widget.Spinner
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import fr.ephyles.heroscapearmycardlist.CardDatabase.Companion.cardList
+import fr.ephyles.heroscapearmycardlist.Global
 import fr.ephyles.heroscapearmycardlist.R
 import fr.ephyles.heroscapearmycardlist.adapter.CardAdapter
 
@@ -28,10 +29,22 @@ class HomeFragment : Fragment() {
         view.findViewById<Spinner>(R.id.sort_spinner).onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 when(position) {
-                    0 -> listRecyclerView.adapter = CardAdapter(context, cardList, R.layout.item_card) {}
-                    1 -> listRecyclerView.adapter = CardAdapter(context, cardList.asReversed(), R.layout.item_card) {}
-                    2 -> listRecyclerView.adapter = CardAdapter(context, cardList.sortedBy { it.points }, R.layout.item_card) {}
-                    3 -> listRecyclerView.adapter = CardAdapter(context, cardList.sortedByDescending { it.points }, R.layout.item_card) {}
+                    0 -> {
+                        listRecyclerView.adapter = CardAdapter(context, cardList, R.layout.item_card) {}
+                        Global.sortId = 0
+                    }
+                    1 -> {
+                        listRecyclerView.adapter = CardAdapter(context, cardList.asReversed(), R.layout.item_card) {}
+                        Global.sortId = 1
+                    }
+                    2 -> {
+                        listRecyclerView.adapter = CardAdapter(context, cardList.sortedBy { it.points }, R.layout.item_card) {}
+                        Global.sortId = 2
+                    }
+                    3 -> {
+                        listRecyclerView.adapter = CardAdapter(context, cardList.sortedByDescending { it.points }, R.layout.item_card) {}
+                        Global.sortId = 3
+                    }
                 }
             }
 

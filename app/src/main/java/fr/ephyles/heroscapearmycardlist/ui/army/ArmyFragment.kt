@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import fr.ephyles.heroscapearmycardlist.CardDatabase.Companion.cardList
 import fr.ephyles.heroscapearmycardlist.CardModel
+import fr.ephyles.heroscapearmycardlist.Global
 import fr.ephyles.heroscapearmycardlist.R
 import fr.ephyles.heroscapearmycardlist.adapter.CardAdapter
 
@@ -31,8 +32,20 @@ class ArmyFragment : Fragment() {
 
         //recup recyclerview
         val armyRecyclerView = view.findViewById<RecyclerView>(R.id.army_recycler_list)
-        armyRecyclerView.adapter = CardAdapter(context, armyList, R.layout.item_card) {
-            updateArmyInfo(armyList, view)
+
+        when(Global.sortId) {
+            0 -> armyRecyclerView.adapter = CardAdapter(context, armyList, R.layout.item_card) {
+                updateArmyInfo(armyList, view)
+            }
+            1 -> armyRecyclerView.adapter = CardAdapter(context, armyList.asReversed(), R.layout.item_card) {
+                updateArmyInfo(armyList, view)
+            }
+            2 -> armyRecyclerView.adapter = CardAdapter(context, armyList.sortedBy { it.points }, R.layout.item_card) {
+                updateArmyInfo(armyList, view)
+            }
+            3 -> armyRecyclerView.adapter = CardAdapter(context, armyList.sortedByDescending { it.points }, R.layout.item_card) {
+                updateArmyInfo(armyList, view)
+            }
         }
 
         view.findViewById<Button>(R.id.clear_army_button).setOnClickListener {
