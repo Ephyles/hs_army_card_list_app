@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Roro/AndroidStudioProjects/HeroscapeArmyCardList/app/src/main/res/drawable-night/ic_book.xml" value="0.1835" />
+        <entry key="..\:/Users/Roro/AndroidStudioProjects/HeroscapeArmyCardList/app/src/main/res/drawable-notnight/ic_book.xml" value="0.1835" />
         <entry key="..\:/Users/Roro/AndroidStudioProjects/HeroscapeArmyCardList/app/src/main/res/drawable/border_powers.xml" value="0.1745" />
         <entry key="..\:/Users/Roro/AndroidStudioProjects/HeroscapeArmyCardList/app/src/main/res/drawable/ic_launcher_background.xml" value="0.228" />
         <entry key="..\:/Users/Roro/AndroidStudioProjects/HeroscapeArmyCardList/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
