@@ -37,7 +37,7 @@ class CardPopup(private val adapter: CardAdapter, private val currentCard: CardM
             "Vydar" -> generalIcon.setImageResource(R.drawable.vydar)
             "Valkrill" -> generalIcon.setImageResource(R.drawable.valkrill)
             "Jandar" -> generalIcon.setImageResource(R.drawable.jandar)
-            else -> generalIcon.setImageResource(R.drawable.ic_close)
+            else -> generalIcon.setImageResource(R.drawable.defaultgen)
         }
 
         findViewById<TextView>(R.id.card_name_popup).text = currentCard.cardname

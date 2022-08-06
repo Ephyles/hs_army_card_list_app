@@ -23,7 +23,7 @@
 
         <Spinner
             android:id="@+id/sort_spinner"
-            android:layout_width="200dp"
+            android:layout_width="180dp"
             android:layout_height="50dp"
             android:layout_marginStart="@dimen/activity_horizontal_margin"
             android:entries="@array/sort_spinner_options" />
@@ -33,17 +33,17 @@
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:padding="0dp"
-            android:layout_marginStart="@dimen/activity_horizontal_margin"
-            android:layout_toEndOf="@+id/sort_spinner"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:layout_toStartOf="@id/category_filter_button"
             android:text="@string/general_filter_button" />
 
         <Button
             android:id="@+id/category_filter_button"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
             android:padding="0dp"
-            android:layout_toEndOf="@+id/general_filter_button"
+            android:layout_alignParentEnd="true"
             android:text="@string/category_filter_button" />
 
     </RelativeLayout>

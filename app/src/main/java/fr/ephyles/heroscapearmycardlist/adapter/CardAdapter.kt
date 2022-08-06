@@ -42,7 +42,13 @@ class CardAdapter(
 
         // maj nom general et points de la carte
         holder.cardName.text = currentCard.cardname
-        holder.generalName.text = currentCard.general
+
+        if(currentCard.general == "Destructible Object") {
+            holder.generalName.text = "D. Object"
+        } else {
+            holder.generalName.text = currentCard.general
+        }
+
         holder.cardPoints.text = currentCard.points.toString()
         holder.armyCount.text = currentCard.armyCount.toString()
 
@@ -54,7 +60,7 @@ class CardAdapter(
             "Vydar" -> holder.generalIcon.setImageResource(R.drawable.vydar_colored)
             "Valkrill" -> holder.generalIcon.setImageResource(R.drawable.valkrill_colored)
             "Jandar" -> holder.generalIcon.setImageResource(R.drawable.jandar_colored)
-            else -> holder.generalIcon.setImageResource(R.drawable.ic_plus)
+            else -> holder.generalIcon.setImageResource(R.drawable.defaultgen_colored)
         }
 
         holder.minusButton.setOnClickListener {

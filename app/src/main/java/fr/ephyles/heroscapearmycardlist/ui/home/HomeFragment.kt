@@ -10,12 +10,9 @@ import android.widget.SearchView
 import android.widget.Spinner
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
+import fr.ephyles.heroscapearmycardlist.*
 import fr.ephyles.heroscapearmycardlist.CardDatabase.Companion.cardList
-import fr.ephyles.heroscapearmycardlist.CardModel
-import fr.ephyles.heroscapearmycardlist.GeneralDialogFragment
-import fr.ephyles.heroscapearmycardlist.Global
 import fr.ephyles.heroscapearmycardlist.Global.*
-import fr.ephyles.heroscapearmycardlist.R
 import fr.ephyles.heroscapearmycardlist.adapter.CardAdapter
 
 class HomeFragment : Fragment() {
@@ -26,6 +23,8 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
+
+        val searchview = view.findViewById<SearchView>(R.id.search_view)
 
         var filteredCardList = cardList
 
@@ -52,19 +51,19 @@ class HomeFragment : Fragment() {
 
                 when(position) {
                     0 -> {
-                        listRecyclerView.adapter = CardAdapter(context, listToShow, R.layout.item_card) {}
+                        listRecyclerView.adapter = CardAdapter(context, listToShow, R.layout.item_card) {searchview.clearFocus()}
                         Global.sortId = 0
                     }
                     1 -> {
-                        listRecyclerView.adapter = CardAdapter(context, listToShow.asReversed(), R.layout.item_card) {}
+                        listRecyclerView.adapter = CardAdapter(context, listToShow.asReversed(), R.layout.item_card) {searchview.clearFocus()}
                         Global.sortId = 1
                     }
                     2 -> {
-                        listRecyclerView.adapter = CardAdapter(context, listToShow.sortedBy { it.points }, R.layout.item_card) {}
+                        listRecyclerView.adapter = CardAdapter(context, listToShow.sortedBy { it.points }, R.layout.item_card) {searchview.clearFocus()}
                         Global.sortId = 2
                     }
                     3 -> {
-                        listRecyclerView.adapter = CardAdapter(context, listToShow.sortedByDescending { it.points }, R.layout.item_card) {}
+                        listRecyclerView.adapter = CardAdapter(context, listToShow.sortedByDescending { it.points }, R.layout.item_card) {searchview.clearFocus()}
                         Global.sortId = 3
                     }
                 }
@@ -75,7 +74,6 @@ class HomeFragment : Fragment() {
             }
         }
 
-        val searchview = view.findViewById<SearchView>(R.id.search_view)
         searchview.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(s: String): Boolean {
                 searchview.clearFocus()
@@ -98,10 +96,10 @@ class HomeFragment : Fragment() {
                 }
 
                 when(Global.sortId) {
-                    0 -> listRecyclerView.adapter = CardAdapter(context, listToShow, R.layout.item_card) {}
-                    1 -> listRecyclerView.adapter = CardAdapter(context, listToShow.asReversed(), R.layout.item_card) {}
-                    2 -> listRecyclerView.adapter = CardAdapter(context, listToShow.sortedBy { it.points }, R.layout.item_card) {}
-                    3 -> listRecyclerView.adapter = CardAdapter(context, listToShow.sortedByDescending { it.points }, R.layout.item_card) {}
+                    0 -> listRecyclerView.adapter = CardAdapter(context, listToShow, R.layout.item_card) {searchview.clearFocus()}
+                    1 -> listRecyclerView.adapter = CardAdapter(context, listToShow.asReversed(), R.layout.item_card) {searchview.clearFocus()}
+                    2 -> listRecyclerView.adapter = CardAdapter(context, listToShow.sortedBy { it.points }, R.layout.item_card) {searchview.clearFocus()}
+                    3 -> listRecyclerView.adapter = CardAdapter(context, listToShow.sortedByDescending { it.points }, R.layout.item_card) {searchview.clearFocus()}
                 }
 
                 return false
@@ -119,14 +117,35 @@ class HomeFragment : Fragment() {
                 }
 
                 when(sortId) {
-                    0 -> listRecyclerView.adapter = CardAdapter(context, listToShow, R.layout.item_card) {}
-                    1 -> listRecyclerView.adapter = CardAdapter(context, listToShow.asReversed(), R.layout.item_card) {}
-                    2 -> listRecyclerView.adapter = CardAdapter(context, listToShow.sortedBy { it.points }, R.layout.item_card) {}
-                    3 -> listRecyclerView.adapter = CardAdapter(context, listToShow.sortedByDescending { it.points }, R.layout.item_card) {}
+                    0 -> listRecyclerView.adapter = CardAdapter(context, listToShow, R.layout.item_card) {searchview.clearFocus()}
+                    1 -> listRecyclerView.adapter = CardAdapter(context, listToShow.asReversed(), R.layout.item_card) {searchview.clearFocus()}
+                    2 -> listRecyclerView.adapter = CardAdapter(context, listToShow.sortedBy { it.points }, R.layout.item_card) {searchview.clearFocus()}
+                    3 -> listRecyclerView.adapter = CardAdapter(context, listToShow.sortedByDescending { it.points }, R.layout.item_card) {searchview.clearFocus()}
                 }
             }
 
             generalPopupFragment.show(childFragmentManager, "generalPopup")
+        }
+
+        view.findViewById<Button>(R.id.category_filter_button).setOnClickListener {
+            val generalPopupFragment = CategoryDialogFragment {
+
+                val listToShow = filteredCardList.filter {
+                    (generalFilter == "All" || it.general == generalFilter) &&
+                            (it.cat != "Official" || official) &&
+                            (it.cat != "C3V" || c3v) &&
+                            (it.cat != "SoV" || sov)
+                }
+
+                when(sortId) {
+                    0 -> listRecyclerView.adapter = CardAdapter(context, listToShow, R.layout.item_card) {searchview.clearFocus()}
+                    1 -> listRecyclerView.adapter = CardAdapter(context, listToShow.asReversed(), R.layout.item_card) {searchview.clearFocus()}
+                    2 -> listRecyclerView.adapter = CardAdapter(context, listToShow.sortedBy { it.points }, R.layout.item_card) {searchview.clearFocus()}
+                    3 -> listRecyclerView.adapter = CardAdapter(context, listToShow.sortedByDescending { it.points }, R.layout.item_card) {searchview.clearFocus()}
+                }
+            }
+
+            generalPopupFragment.show(childFragmentManager, "categoryPopup")
         }
 
         return view
