@@ -8,6 +8,14 @@
     android:paddingBottom="20dp"
     tools:context=".ui.home.HomeFragment">
 
+    <SearchView
+        android:id="@+id/search_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:iconifiedByDefault="false"
+        android:layout_marginTop="16dp"
+        android:queryHint="Search"/>
+
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -15,17 +23,28 @@
 
         <Spinner
             android:id="@+id/sort_spinner"
-            android:layout_width="220dp"
-            android:layout_height="40dp"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
             android:entries="@array/sort_spinner_options" />
 
         <Button
+            android:id="@+id/general_filter_button"
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:text="@string/search_button"
-            android:layout_marginRight="@dimen/activity_horizontal_margin"
-            android:layout_alignParentEnd="true"/>
+            android:layout_height="50dp"
+            android:padding="0dp"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_toEndOf="@+id/sort_spinner"
+            android:text="@string/general_filter_button" />
+
+        <Button
+            android:id="@+id/category_filter_button"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:padding="0dp"
+            android:layout_toEndOf="@+id/general_filter_button"
+            android:text="@string/category_filter_button" />
 
     </RelativeLayout>
 

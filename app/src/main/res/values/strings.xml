@@ -14,6 +14,23 @@
         <item>Points (descending)</item>
     </string-array>
 
+    <string-array name="general_filter_options">
+        <item>All</item>
+        <item>Aquilla</item>
+        <item>Einar</item>
+        <item>Jandar</item>
+        <item>Ullar</item>
+        <item>Utgar</item>
+        <item>Valkrill</item>
+        <item>Vydar</item>
+    </string-array>
+
+    <string-array name="category_filter_options">
+        <item>Official</item>
+        <item>C3V</item>
+        <item>SoV</item>
+    </string-array>
+
     <!-- Popup -->
     <string name="card_name_popup">Card Name</string>
     <string name="general_category_popup">%1$s - %2$s</string>
@@ -36,6 +53,9 @@
     <string name="title_list">Card List</string>
     <string name="army_points">%1$d points</string>
     <string name="army_spaces">%1$d spaces</string>
+
+
     <string name="clear_army_popup">Clear army</string>
-    <string name="search_button">Search</string>
+    <string name="general_filter_button">General</string>
+    <string name="category_filter_button">C3V/SoV</string>
 </resources>
