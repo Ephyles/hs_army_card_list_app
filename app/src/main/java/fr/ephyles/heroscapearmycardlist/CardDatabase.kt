@@ -7,6 +7,10 @@ import com.readystatesoftware.sqliteasset.SQLiteAssetHelper
 class CardDatabase(context: Context?) :
     SQLiteAssetHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
 
+    init {
+        setForcedUpgrade()
+    }
+
     fun createList(callback: () -> Unit) {
         val db = readableDatabase
         val qb = SQLiteQueryBuilder()
