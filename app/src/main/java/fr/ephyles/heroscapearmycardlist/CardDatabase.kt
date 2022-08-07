@@ -56,11 +56,12 @@ class CardDatabase(context: Context?) :
 
     companion object {
         private const val DATABASE_NAME = "cards.db"
-        private const val DATABASE_VERSION = 2
+        private const val DATABASE_VERSION = 3
         /*
         Database Changelog
         v1 : Original database
         v2 : fixed Wolves Of Badru and Wo-Sa-Ga having their powers swapped
+        v3 : lots of small typo fixes + 3 new SoV cards (Kate Crawford, Clayton Pierce, M.A.R.S.)
          */
         val cardList = arrayListOf<CardModel>()
     }

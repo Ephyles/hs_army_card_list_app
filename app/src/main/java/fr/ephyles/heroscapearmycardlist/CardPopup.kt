@@ -64,11 +64,6 @@ class CardPopup(private val adapter: CardAdapter, private val currentCard: CardM
         findViewById<TextView>(R.id.powers_popup).text = currentCard.powers
             .replace("ÔÇÖ", "'") //Fix apostrophes
             .replace("ÔÇæ", "-") //Fix hyphens
-            .replace("ÔÇó", "•") //Fix bullets for Kantono Daishi
-            .replace("├╝", "ü")  //Fix Dünd
-            .replace("\"\"", "\"").replace(".\"", ".")
-            .replace("\"W", "W").replace("\" If", "If")
-            .replace(". \"", ".") //Fix Louis Mad Dog Malone
 
         findViewById<TextView>(R.id.army_count_popup).text = currentCard.armyCount.toString()
     }
